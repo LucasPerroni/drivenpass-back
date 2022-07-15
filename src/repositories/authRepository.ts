@@ -1,5 +1,5 @@
 import { prisma } from "../config/database.js"
-import { User } from "../schemas/signupSchema.js"
+import { User } from "../controllers/authController.js"
 
 export async function findUserByEmail(email: string) {
   const user = await prisma.users.findUnique({ where: { email } })
