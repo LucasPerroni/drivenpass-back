@@ -12,3 +12,20 @@ export async function createSafeNote(req: Request, res: Response) {
 
   res.sendStatus(201)
 }
+
+export async function getSafeNotes(req: Request, res: Response) {
+  const { userId } = res.locals
+
+  const safeNotes = await Services.getSafeNotesByUserId(userId)
+
+  res.status(200).send({ safeNotes })
+}
+
+export async function getOneSafeNote(req: Request, res: Response) {
+  const { userId } = res.locals
+  const { id } = req.params
+
+  const safeNote = await Services.getSafeNoteById(id, userId)
+
+  res.status(200).send(safeNote)
+}

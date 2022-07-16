@@ -93,3 +93,17 @@ POST /safenotes (authenticated)
         "text": "loremipsum" (max 1000)
     }
 ```
+
+```yml
+GET /safenotes (authenticated)
+    - Route to get all the user safe notes
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
+
+```yml
+GET /safenotes/:id (authenticated)
+    - Route to get one of the user safe notes
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
