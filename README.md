@@ -107,3 +107,10 @@ GET /safenotes/:id (authenticated)
     - headers: { "Authorization": "Bearer $token"}
     - body: {}
 ```
+
+```yml
+DELETE /safenotes/:id (authenticated)
+    - Route to delete a safe note
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
