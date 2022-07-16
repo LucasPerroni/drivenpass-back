@@ -19,3 +19,7 @@ export async function findCredentialById(id: number) {
 export async function createCredential(data: Omit<Credentials, "id">) {
   await prisma.credentials.create({ data })
 }
+
+export async function deleteCredential(id: number) {
+  await prisma.credentials.delete({ where: { id } })
+}

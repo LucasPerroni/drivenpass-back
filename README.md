@@ -76,3 +76,10 @@ GET /credentials/:id (authenticated)
     - headers: { "Authorization": "Bearer $token"}
     - body: {}
 ```
+
+```yml
+DELETE /credentials/:id (authenticated)
+    - Delete a credential
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
