@@ -79,7 +79,17 @@ GET /credentials/:id (authenticated)
 
 ```yml
 DELETE /credentials/:id (authenticated)
-    - Delete a credential
+    - Route to delete a credential
     - headers: { "Authorization": "Bearer $token"}
     - body: {}
+```
+
+```yml
+POST /safenotes (authenticated)
+    - Route to create a safe note
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {
+        "title": "loremipsum" (max 50),
+        "text": "loremipsum" (max 1000)
+    }
 ```
