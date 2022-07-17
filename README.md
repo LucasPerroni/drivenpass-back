@@ -151,3 +151,14 @@ DELETE /cards/:id (authenticated)
     - headers: { "Authorization": "Bearer $token"}
     - body: {}
 ```
+
+```yml
+POST /wifi (authenticated)
+    - Route to create wifi data
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {
+        "title": "loremipsum",
+        "name": "loremipsum",
+        "password": "loremipsum"
+    }
+```
