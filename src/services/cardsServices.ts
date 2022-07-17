@@ -21,3 +21,37 @@ export async function createNewCard(data: Omit<Cards, "id">) {
 
   await Repository.createCard(data)
 }
+
+export async function getCardsByUserId(userId: number) {
+  const cryptr = new Cryptr(process.env.CRYPTR_KEY)
+  const card = await Repository.findCardsByUserId(userId)
+
+  card.forEach((n) => {
+    delete n.userId
+    n.password = cryptr.decrypt(n.password)
+    n.securityCode = cryptr.decrypt(n.securityCode)
+  })
+
+  return card
+}
+
+export async function getCardById(id: string, userId: number) {
+  const cryptr = new Cryptr(process.env.CRYPTR_KEY)
+  if (!Number(id)) {
+    Error.errorUnprocessable("Id must be a number")
+  }
+
+  const card = await Repository.findCardById(Number(id))
+
+  if (!card) {
+    Error.errorNotFound("Couldn't find a safe note with that id")
+  } else if (card.userId !== userId) {
+    Error.errorForbidden("This safe note belongs to another user")
+  }
+
+  delete card.userId
+  card.password = cryptr.decrypt(card.password)
+  card.securityCode = cryptr.decrypt(card.securityCode)
+
+  return card
+}

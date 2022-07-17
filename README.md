@@ -130,3 +130,17 @@ POST /cards (authenticated)
         "type": "credit | debit | both"
     }
 ```
+
+```yml
+GET /cards (authenticated)
+    - Route to get all the user cards
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
+
+```yml
+GET /cards/:id (authenticated)
+    - Route to get one of the user cards
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```

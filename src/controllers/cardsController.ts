@@ -13,3 +13,20 @@ export async function createCard(req: Request, res: Response) {
 
   res.sendStatus(201)
 }
+
+export async function getCards(req: Request, res: Response) {
+  const { userId } = res.locals
+
+  const cards = await Services.getCardsByUserId(userId)
+
+  res.status(200).send({ cards })
+}
+
+export async function getOneCard(req: Request, res: Response) {
+  const { userId } = res.locals
+  const { id } = req.params
+
+  const card = await Services.getCardById(id, userId)
+
+  res.status(200).send(card)
+}
