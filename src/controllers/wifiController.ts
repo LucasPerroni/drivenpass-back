@@ -12,3 +12,20 @@ export async function createWifi(req: Request, res: Response) {
 
   res.sendStatus(201)
 }
+
+export async function getWifi(req: Request, res: Response) {
+  const { userId } = res.locals
+
+  const wifi = await Services.getWifiByUserId(userId)
+
+  res.status(200).send({ wifi })
+}
+
+export async function getOneWifi(req: Request, res: Response) {
+  const { userId } = res.locals
+  const { id } = req.params
+
+  const wifi = await Services.getWifiById(id, userId)
+
+  res.status(200).send(wifi)
+}
