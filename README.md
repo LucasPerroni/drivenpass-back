@@ -114,3 +114,19 @@ DELETE /safenotes/:id (authenticated)
     - headers: { "Authorization": "Bearer $token"}
     - body: {}
 ```
+
+```yml
+POST /cards (authenticated)
+    - Route to create a card
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {
+        "title": "loremipsum",
+        "number": "1234123412341234" (length 16),
+        "name": "loremipsum",
+        "securityCode": "123" (length 3),
+        "expirationDate": "12/12" (length 5),
+        "password": "loremipsum",
+        "isVirtual": false | true,
+        "type": "credit | debit | both"
+    }
+```

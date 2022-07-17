@@ -57,7 +57,7 @@ model Cards {
   title          String
   number         String
   name           String
-  serucityCode   Int
+  securityCode   String
   expirationDate String  @db.VarChar(5)
   password       String
   isVirtual      Boolean
