@@ -29,3 +29,13 @@ export async function getOneWifi(req: Request, res: Response) {
 
   res.status(200).send(wifi)
 }
+
+export async function deleteWifi(req: Request, res: Response) {
+  const { userId } = res.locals
+  const { id } = req.params
+
+  const wifi = await Services.getWifiById(id, userId)
+  await Repository.deleteWifi(Number(id))
+
+  res.sendStatus(200)
+}

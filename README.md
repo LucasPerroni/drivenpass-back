@@ -162,3 +162,24 @@ POST /wifi (authenticated)
         "password": "loremipsum"
     }
 ```
+
+```yml
+GET /wifi (authenticated)
+    - Route to get all the user wifi
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
+
+```yml
+GET /wifi/:id (authenticated)
+    - Route to get one of the user wifi
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
+
+```yml
+DELETE /wifi/:id (authenticated)
+    - Route to delete a wifi
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```
