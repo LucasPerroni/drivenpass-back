@@ -144,3 +144,10 @@ GET /cards/:id (authenticated)
     - headers: { "Authorization": "Bearer $token"}
     - body: {}
 ```
+
+```yml
+DELETE /cards/:id (authenticated)
+    - Route to delete a card
+    - headers: { "Authorization": "Bearer $token"}
+    - body: {}
+```

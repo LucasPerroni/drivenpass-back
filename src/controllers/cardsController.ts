@@ -30,3 +30,13 @@ export async function getOneCard(req: Request, res: Response) {
 
   res.status(200).send(card)
 }
+
+export async function deleteCard(req: Request, res: Response) {
+  const { userId } = res.locals
+  const { id } = req.params
+
+  const card = await Services.getCardById(id, userId)
+  await Repository.deleteCard(Number(id))
+
+  res.sendStatus(200)
+}
